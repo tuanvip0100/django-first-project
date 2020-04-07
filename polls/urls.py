@@ -17,5 +17,6 @@ urlpatterns = [
     url(r'^change/name/$', views.change_user_name),
     url(r'^sign/view/$', views.sign_in_view),
     url(r'^sign/$', views.sign_in),
-    url(r'^get/all/$', views.get_all_person)
+    url(r'^get/all/$', views.get_all_person),
+    url(r'^delete/(?P<user_id>[0-9]+)/$', views.delete_person)
 ]

@@ -145,15 +145,23 @@ def sign_in(request):
 
 
 def get_all_person(request):
-    user_name = request.session['user_name']
-    if services.is_admin(user_name) is False:
-        return HttpResponse('admin permission is required')
+    if 'user_name' in request.session:
+        name = request.session['user_name']
+        if services.is_admin(name) is False:
+            return HttpResponse('admin permission is required')
     objects = services.get_all_person()
     results = [ob.as_json() for ob in objects]
     return HttpResponse(json.dumps(results), content_type="application/json")
 
 
 def delete_person(request, user_id):
-    if services.delete_person(user_id) is True:
-        return HttpResponse("delete person success!")
-    return HttpResponse("request failure!")
+    if 'user_name' in request.session:
+        name = request.session['user_name']
+        if services.is_admin(name) is False:
+            return HttpResponse('admin permission is required')
+        if services.delete_person(user_id) is True:
+            return HttpResponse("delete person success!")
+        else:
+            return HttpResponse("request failure!")
+    form = LoginForm()
+    return render(request, "login_page.html", {'form': form})
