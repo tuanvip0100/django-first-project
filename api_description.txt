@@ -1,0 +1,22 @@
+The project will be available at 127.0.0.1:8000.
+
+django admin account:
+tuantran
+password
+
+admin account:
+tuan
+pass
+
+api:
+127.0.0.1:8000/admin/ -> admin page
+127.0.0.1:8000/polls/login/ -> login form
+127.0.0.1:8000/polls/sign/view -> sign up form
+127.0.0.1:8000/polls/sign/ -> sign up
+127.0.0.1:8000/polls/login/request/ -> login
+127.0.0.1:8000/polls/logout/ -> logout
+127.0.0.1:8000/polls/get/detail/ -> current user detail
+127.0.0.1:8000/polls/get/all/ -> get all user in DB (admin required)
+127.0.0.1:8000/polls/change/name/view/ -> change current user name form
+127.0.0.1:8000/polls/change/name/ -> update user name
+127.0.0.1:8000/polls/detete/user_id/ -> delete user (admin required)
